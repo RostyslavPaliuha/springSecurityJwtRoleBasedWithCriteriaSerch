@@ -1,0 +1,74 @@
+/*admin authorize*/
+GET  http://localhost:8090/login
+
+{
+  "userName": "user1",
+  "password": "password"
+}
+
+
+/*add new contact*/
+POST  http://localhost:8090/contacts
+
+/*PAYLOAD*/
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "address": {
+    "street": "Fourth St",
+    "city": "NY"
+  },
+  "phone": {
+    "phoneType": "MOBILE",
+    "phoneNumber": "+1 (888) 555-4654"
+  },
+  "email": "johndoe@gmail.com"
+}
+
+
+/*Get single contact*/
+GET  http://localhost:8090/contacts/{id}
+
+
+/*Get a paginated list of records*/
+GET  http://localhost:8090/contacts?size=10&offset=0
+
+
+/*Criteria Search*/
+GET  http://localhost:8090/contact/search?size=10&offset=0&query={firstName=xx&lastName=yyy&city=NY}
+
+/*PAYLOAD*/
+{
+"firstName": "Johny",
+" lastName": null,
+"city": "LA",
+"orderBy": null
+ }
+
+/*Update contact*/
+PUT http://localhost:8090/contacts/{id}
+
+/*PAYLOAD*/
+{
+  "firstName": "Ross",
+  "lastName": "Paliuha",
+  "address": {
+    "street": "Galitska St",
+    "city": "IF"
+  },
+  "phone": {
+    "phoneType": "MOBILE",
+    "phoneNumber": "+3 (8095) 7214-132"
+  },
+  "email": "rostyslavpaliuha@gmail.com"
+}
+
+
+/* Delete single contact*/
+
+DELETE http://localhost:8090/contacts/{id}
+
+
+
+
+
